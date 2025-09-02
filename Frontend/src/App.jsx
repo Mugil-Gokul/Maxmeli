@@ -1,10 +1,13 @@
 import './App.css'
+import Navbar from './components/Navbar'
+import Home from './pages/Home/Home'
 
 function App() {
 
   return (
     <>
-      <h1 className='text-red-300 text-4xl'>Hello world</h1>
+      <Navbar />
+      <Home />
     </>
   )
 }
