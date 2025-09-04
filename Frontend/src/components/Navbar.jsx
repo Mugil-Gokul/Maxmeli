@@ -71,10 +71,15 @@ const Navbar = () => {
           onMouseEnter={() => setServicesOpen(true)}
           onMouseLeave={() => setServicesOpen(false)}
         >
-          <span className="cursor-pointer relative">
-            Services
-            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-          </span>
+          <Link
+  to="/services"
+  className="cursor-pointer relative group"
+  onClick={() => setServicesOpen(false)}
+>
+  <span>Services</span>
+  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+</Link>
+
 
           <AnimatePresence>
             {servicesOpen && (

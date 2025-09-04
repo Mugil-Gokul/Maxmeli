@@ -1,49 +1,111 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Construction from "../../assets/collage1.jpg";
 import Restoration from "../../assets/collage2.jpg";
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.3,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  }),
+};
+
+const textVariant = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const underlineVariant = {
+  hidden: { opacity: 0, width: 0 },
+  visible: {
+    opacity: 1,
+    width: "100%",
+    transition: { duration: 0.5, ease: "easeOut", delay: 0.4 },
+  },
+};
+
 const OurService = () => {
+  const navigate = useNavigate();
+
   return (
-    <section className="w-full relative h-[100vh]">
+    <section className="w-full relative min-h-screen">
       {/* Top Black Background */}
-      <div className="bg-black text-white px-8 py-12 h-[75vh] flex flex-col justify-start relative">
+      <div className="bg-black text-white px-8 py-12 min-h-[75vh] flex flex-col justify-start relative">
         <div className="max-w-6xl">
-          <p className="uppercase text-sm tracking-widest text-white font-semibold">
+          <motion.p
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={textVariant}
+            className="uppercase text-sm tracking-widest font-semibold text-white"
+          >
             - Our Services
-          </p>
-          <hr className="mt-3"/>
-          <h2 className="text-4xl tracking-widest font-bold mt-2">WHAT WE DO</h2>
+          </motion.p>
+
+          <motion.hr
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={underlineVariant}
+            className="mt-3 border-white"
+          />
+
+          <motion.h2
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.5 }}
+            variants={textVariant}
+            transition={{ delay: 0.6 }}
+            className="text-4xl tracking-widest font-bold mt-4"
+          >
+            WHAT WE DO
+          </motion.h2>
         </div>
 
-        {/* Cards placed on top of black background */}
-        <div className="absolute bottom-0 right-8 left-8 md:left-auto md:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-6 translate-y-1/2 h-[100vh]">
-          {/* Construction */}
-          <div className="flex flex-col">
-            <div className="w-[400px] h-[500px] overflow-hidden">
-              <img
-                src={Construction}
-                alt="Construction"
-                className="w-[400px] h-full object-cover"
-              />
-            </div>
-            <div className="bg-yellow-500 text-white font-bold uppercase tracking-wider text-center py-3 w-[400px]">
-              Construction
-            </div>
-          </div>
-
-          {/* Restoration */}
-          <div className="flex flex-col">
-            <div className="w-[400px] h-[500px] overflow-hidden">
-              <img
-                src={Restoration}
-                alt="Restoration"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="bg-yellow-500 text-white font-bold uppercase tracking-wider text-center py-3 w-[400px]">
-              Restoration
-            </div>
-          </div>
+        {/* Cards */}
+        <div className="absolute bottom-0 left-8 right-8 md:left-auto md:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-6 translate-y-1/2">
+          {[Construction, Restoration].map((img, i) => (
+            <motion.div
+              key={i}
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={cardVariants}
+              className="flex flex-col items-center"
+            >
+              <div className="w-full max-w-[400px] h-[500px] overflow-hidden rounded-lg shadow-lg group">
+                <img
+                  src={img}
+                  alt={i === 0 ? "Construction" : "Restoration"}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div
+                onClick={() =>
+                  navigate(
+                    i === 0
+                      ? "/services/construction"
+                      : "/services/restoration"
+                  )
+                }
+                className="cursor-pointer bg-yellow-500 text-white font-bold uppercase tracking-wider text-center py-3 w-full max-w-[400px] mt-4 hover:bg-yellow-600 transition-colors duration-300"
+              >
+                {i === 0 ? "Construction" : "Restoration"}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

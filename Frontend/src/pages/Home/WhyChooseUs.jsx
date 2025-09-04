@@ -6,13 +6,37 @@ import Collage3 from "../../assets/collage3.jpg";
 import Collage4 from "../../assets/collage4.jpg";
 import Collage5 from "../../assets/collage5.jpg";
 
-const textVariant = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (i = 1) => ({
+// Heading slides up from bottom
+const headingVariant = {
+  hidden: { opacity: 0, y: 80 },
+  visible: {
     opacity: 1,
     y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+// Left-side content slides in from left
+const leftTextVariant = {
+  hidden: { opacity: 0, x: -60 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    x: 0,
     transition: { delay: i * 0.2, duration: 0.6, ease: "easeOut" },
   }),
+};
+
+// Image collage floats and rotates subtly
+const collageMotion = {
+  animate: {
+    rotate: [0, 1.5, -1.5, 0],
+    y: [0, -5, 5, 0],
+  },
+  transition: {
+    duration: 8,
+    repeat: Infinity,
+    ease: "easeInOut",
+  },
 };
 
 const imageVariant = {
@@ -29,13 +53,15 @@ const WhyChooseUs = () => {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
+      viewport={{ once: true, amount: 0.3 }}
       className="w-full py-20 bg-gray-50"
     >
       {/* Section Heading */}
       <motion.div
-        variants={textVariant}
-        custom={0}
+        variants={headingVariant}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         className="text-center mb-16"
       >
         <h2 className="text-4xl md:text-5xl font-bold text-black uppercase tracking-widest">
@@ -48,33 +74,45 @@ const WhyChooseUs = () => {
         {/* Left Side */}
         <div className="md:w-1/2 space-y-6">
           <motion.h3
-            variants={textVariant}
+            variants={leftTextVariant}
             custom={1}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="text-5xl md:text-6xl font-extrabold text-black leading-tight uppercase"
           >
             Building Dreams, Creating Value
           </motion.h3>
           <motion.h5
-            variants={textVariant}
+            variants={leftTextVariant}
             custom={2}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="text-5xl md:text-6xl font-semibold text-gray-900 leading-tight uppercase"
           >
             Your Trusted Partner in Construction and Restoration
           </motion.h5>
           <motion.p
-            variants={textVariant}
+            variants={leftTextVariant}
             custom={3}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             className="text-lg md:text-lg text-gray-600"
           >
-            Maxmeli Construction Ltd. We delivers expert construction,
-            restoration, and outdoor development with a highly skilled team.
-            They prioritize sustainable practices, industry compliance, and
-            modern trends. With a focus on quality craftsmanship, they ensure
-            projects are functional, durable, and aesthetically flawless.
+            Maxmeli Construction Ltd. delivers expert construction, restoration,
+            and outdoor development with a highly skilled team. We prioritize
+            sustainable practices, industry compliance, and modern trends. With
+            a focus on quality craftsmanship, we ensure projects are functional,
+            durable, and aesthetically flawless.
           </motion.p>
           <motion.a
-            variants={textVariant}
+            variants={leftTextVariant}
             custom={4}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             href="#about"
             className="inline-block bg-black text-white px-8 py-3 font-semibold hover:bg-gray-800 transition"
           >
@@ -82,7 +120,7 @@ const WhyChooseUs = () => {
           </motion.a>
         </div>
 
-        {/* Right Side - Image Collage */}
+        {/* Right Side - Animated Image Collage */}
         <div className="md:w-1/2 grid grid-cols-2 grid-rows-2 gap-4">
           {[Collage1, Collage2, Collage3, Collage4].map((src, i) => (
             <motion.img
@@ -90,6 +128,9 @@ const WhyChooseUs = () => {
               src={src}
               alt={`Collage ${i + 1}`}
               variants={imageVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
               custom={i}
               className={`w-full h-44 object-cover shadow-lg ${
                 i === 0 ? "rounded-tl-md" : i === 1 ? "rounded-tr-md" : ""
@@ -100,6 +141,9 @@ const WhyChooseUs = () => {
             src={Collage5}
             alt="Collage 5"
             variants={imageVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             custom={5}
             className="w-full h-72 md:col-span-2 object-cover shadow-lg mt-4 rounded-bl-md rounded-br-md"
           />

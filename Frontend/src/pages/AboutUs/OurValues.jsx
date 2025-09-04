@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const valuesData = [
@@ -34,33 +34,71 @@ const valuesData = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 const OurValues = () => {
   const [selected, setSelected] = useState(0);
 
+  // Auto-rotate every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelected((prev) => (prev + 1) % valuesData.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="bg-black text-white py-16 px-6 md:px-12 lg:px-20 h-screen">
-      {/* White line above heading */}
-      <div className="w-full h-[0.25px] bg-white my-4"></div>
+      {/* Animated Line */}
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: "100%" }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="h-[0.25px] bg-white my-4"
+      />
+
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
         {/* Left Column */}
-        <div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeUp}
+        >
           <h3 className="text-2xl uppercase font-semibold tracking-widest text-gray-300 mb-8 py-6">
             Our Values
           </h3>
 
           <ul className="space-y-5">
             {valuesData.map((item, index) => (
-              <li
+              <motion.li
                 key={index}
                 onClick={() => setSelected(index)}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, x: -20 },
+                  visible: {
+                    opacity: 1,
+                    x: 0,
+                    transition: { delay: index * 0.1, duration: 0.4 },
+                  },
+                }}
                 className="flex items-center gap-3 cursor-pointer group"
               >
-                {/* Blue dot only for selected */}
-                {selected === index && (
+                {selected === index ? (
                   <span className="w-3 h-3 rounded-full bg-yellow-500"></span>
-                )}
-                {selected !== index && (
-                  <span className="w-3 h-3"></span> // keeps alignment
+                ) : (
+                  <span className="w-3 h-3"></span>
                 )}
                 <span
                   className={`text-lg font-medium transition-colors duration-300 ${
@@ -69,10 +107,10 @@ const OurValues = () => {
                 >
                   {item.title}
                 </span>
-              </li>
+              </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
 
         {/* Right Column - Dynamic Content */}
         <div className="flex flex-col justify-center items-center">
@@ -87,7 +125,7 @@ const OurValues = () => {
               <h2 className="text-4xl font-bold mb-4">
                 {valuesData[selected].heading}
               </h2>
-              <p className="text-gray-300 text-lg leading-relaxed">
+              <p className="text-gray-300 text-lg leading-relaxed max-w-xl">
                 {valuesData[selected].description}
               </p>
             </motion.div>
