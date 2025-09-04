@@ -1,57 +1,83 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
-import Work1 from "../../assets/collage1.jpg";
-import Work2 from "../../assets/collage2.jpg";
-import Work3 from "../../assets/collage3.jpg";
-import Work4 from "../../assets/collage4.jpg";
-import Work5 from "../../assets/collage5.jpg";
+import Work1 from "../../assets/ch1.jpg";
+import Work2 from "../../assets/ch2.jpg";
+import Work3 from "../../assets/gs1.jpeg";
+import Work4 from "../../assets/gs2.jpeg";
+import Work5 from "../../assets/ir1.jpg";
+import Work6 from "../../assets/ir2.jpg";
+import Work7 from "../../assets/ir3.jpeg";
+import Work8 from "../../assets/ir4.jpeg";
+import Work9 from "../../assets/ir5.jpeg";
+import Work10 from "../../assets/ir6.jpeg";
+import Work11 from "../../assets/ls1.jpg";
+import Work12 from "../../assets/ls2.jpg";
+import Work13 from "../../assets/ls3.jpg";
+import Work14 from "../../assets/ls4.jpg";
+import Work15 from "../../assets/ls5.jpg";
+import Work16 from "../../assets/ls6.jpeg";
+import Work17 from "../../assets/ls7.jpeg";
 
 const projects = [
-  { img: Work1, title: "Limberlost Place - George Brown College" },
-  { img: Work2, title: "BMO Centre Expansion" },
-  { img: Work3, title: "Limberlost Place - George Brown College" },
-  { img: Work4, title: "BMO Centre Expansion" },
-  { img: Work5, title: "Limberlost Place - George Brown College" },
+  { title: "New Built And Custom Homes", images: [Work1, Work2] },
+  { title: "Fourplex And Garden Suite", images: [Work3, Work4] },
+  { title: "Interior Retrofit", images: [Work5, Work6, Work7, Work8, Work9, Work10] },
+  { title: "Landscaping", images: [Work11, Work12, Work13, Work14, Work15, Work16, Work17] },
 ];
 
 const imageVariants = {
   enter: (direction) => ({
     x: direction > 0 ? 100 : -100,
     opacity: 0,
-    scale: 0.95
+    scale: 0.95,
   }),
   center: {
     x: 0,
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" }
+    transition: { duration: 0.5, ease: "easeOut" },
   },
   exit: (direction) => ({
     x: direction < 0 ? 100 : -100,
     opacity: 0,
     scale: 0.95,
-    transition: { duration: 0.4, ease: "easeIn" }
-  })
+    transition: { duration: 0.4, ease: "easeIn" },
+  }),
 };
 
-const swipeConfidenceThreshold = 100; // px threshold for swipe
-const swipePower = (offset, velocity) => {
-  return Math.abs(offset) * velocity;
-};
+const swipeConfidenceThreshold = 100;
+const swipePower = (offset, velocity) => Math.abs(offset) * velocity;
 
 const ConstructionWork = () => {
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [direction, setDirection] = useState(0);
+  const [carouselIndexes, setCarouselIndexes] = useState(projects.map(() => 0));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCarouselIndexes((prev) =>
+        prev.map((idx, i) => (idx + 1) % projects[i].images.length)
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   const nextImage = () => {
     setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % projects.length);
+    setActiveImageIndex((prev) => {
+      const images = projects[currentIndex].images;
+      return (prev + 1) % images.length;
+    });
   };
 
   const prevImage = () => {
     setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
+    setActiveImageIndex((prev) => {
+      const images = projects[currentIndex].images;
+      return (prev - 1 + images.length) % images.length;
+    });
   };
 
   return (
@@ -74,7 +100,7 @@ const ConstructionWork = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-20 h-[3px] bg-yellow-500 mx-auto mt-3 origin-left"
-          ></motion.div>
+          />
         </div>
 
         {/* Grid */}
@@ -86,24 +112,29 @@ const ConstructionWork = () => {
               initial={{ opacity: 0, y: 40, scale: 0.95 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                ease: "easeOut",
+              }}
               whileHover={{
                 scale: 1.03,
                 rotateX: 2,
                 rotateY: -2,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
+                boxShadow: "0 20px 40px rgba(0,0,0,0.2)",
               }}
               onClick={() => {
                 setDirection(0);
                 setCurrentIndex(index);
+                setActiveImageIndex(0);
               }}
             >
               <img
-                src={project.img}
+                src={project.images[carouselIndexes[index]]}
                 alt={project.title}
                 className="w-full h-64 object-cover transform group-hover:scale-105 transition duration-500"
               />
-              <div className="p-4 text-center font-semibold text-gray-800 bg-white transition duration-300 group-hover:bg-yellow-500 group-hover:text-white">
+              <div className="py-4 px-4 tracking-wider text-xl uppercase font-bold text-gray-800 bg-white transition duration-300 group-hover:bg-yellow-500 group-hover:text-white">
                 {project.title}
               </div>
             </motion.div>
@@ -129,10 +160,14 @@ const ConstructionWork = () => {
             >
               {/* Close */}
               <motion.button
-                whileHover={{ rotate: 90, backgroundColor: "#eab308", color: "#fff" }}
+                whileHover={{
+                  rotate: 90,
+                  backgroundColor: "#eab308",
+                  color: "#fff",
+                }}
                 transition={{ duration: 0.3 }}
                 onClick={() => setCurrentIndex(null)}
-                className="absolute top-0 right-0 bg-white p-2 shadow-lg  z-50"
+                className="absolute top-0 right-0 bg-white p-2 shadow-lg z-50"
               >
                 <AiOutlineClose className="h-4 w-4 text-gray-800" />
               </motion.button>
@@ -146,10 +181,10 @@ const ConstructionWork = () => {
                 <AiOutlineLeft className="h-5 w-5 text-gray-800" />
               </motion.button>
 
-              {/* Image with swipe */}
+              {/* Image */}
               <motion.img
-                key={currentIndex}
-                src={projects[currentIndex].img}
+                key={activeImageIndex}
+                src={projects[currentIndex].images[activeImageIndex]}
                 alt={projects[currentIndex].title}
                 className="shadow-lg max-w-[600px] max-h-[70vh] object-contain rounded-lg"
                 custom={direction}
@@ -162,11 +197,8 @@ const ConstructionWork = () => {
                 dragElastic={0.8}
                 onDragEnd={(e, { offset, velocity }) => {
                   const swipe = swipePower(offset.x, velocity.x);
-                  if (swipe < -swipeConfidenceThreshold) {
-                    nextImage();
-                  } else if (swipe > swipeConfidenceThreshold) {
-                    prevImage();
-                  }
+                  if (swipe < -swipeConfidenceThreshold) nextImage();
+                  else if (swipe > swipeConfidenceThreshold) prevImage();
                 }}
               />
 

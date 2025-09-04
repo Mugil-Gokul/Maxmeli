@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Construction from "../../assets/collage1.jpg";
-import Restoration from "../../assets/collage2.jpg";
+import Construction from "../../assets/Construction.jpg";
+import Restoration from "../../assets/restoration.jpg";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -100,7 +100,7 @@ const OurService = () => {
                       : "/services/restoration"
                   )
                 }
-                className="cursor-pointer bg-yellow-500 text-white font-bold uppercase tracking-wider text-center py-3 w-full max-w-[400px] mt-4 hover:bg-yellow-600 transition-colors duration-300"
+                className="cursor-pointer bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 tracking-widest hover:brightness-110 hover:text-black text-white font-bold uppercase text-center py-3 w-full max-w-[400px] mt-4 hover:bg-yellow-600 transition-colors duration-300"
               >
                 {i === 0 ? "Construction" : "Restoration"}
               </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import workerImage from "../../assets/collage2.jpg"; 
+import workerImage from "../../assets/banner7.jpg"; 
 import { motion } from "framer-motion";
 
 const ContactHero = () => {

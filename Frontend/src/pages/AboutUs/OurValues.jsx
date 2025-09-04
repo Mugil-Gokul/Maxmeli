@@ -6,31 +6,31 @@ const valuesData = [
     title: "INTEGRITY",
     heading: "We keep it real.",
     description:
-      "We are upfront, open and realistic. We are genuine about delivering what we say we will.",
+      "We believe in transparency, ethical practices, and delivering on our promises.",
   },
   {
     title: "EXCELLENCE",
     heading: "We aim for perfection.",
     description:
-      "We hold ourselves to the highest standards, ensuring every detail is executed flawlessly.",
+      "Our commitment to quality and superior craftsmanship is unwavering.",
   },
   {
     title: "INNOVATION",
     heading: "We think differently.",
     description:
-      "We embrace creativity and new ideas to deliver better solutions for our clients.",
+      "We embrace new ideas, technologies, and construction techniques to provide cutting-edge solutions.",
   },
   {
     title: "CUSTOMER FOCUS",
     heading: "We put you first.",
     description:
-      "Your needs drive our decisions, and your satisfaction is our top priority.",
+      "Your needs come first, and we tailor our services to exceed your expectations.",
   },
   {
     title: "SUSTAINABILITY",
     heading: "We build for tomorrow.",
     description:
-      "We are committed to responsible practices that protect the environment for future generations.",
+      "We use eco-friendly practices to ensure long-lasting and responsible construction.",
   },
 ];
 
@@ -73,7 +73,7 @@ const OurValues = () => {
           viewport={{ once: true }}
           variants={fadeUp}
         >
-          <h3 className="text-2xl uppercase font-semibold tracking-widest text-gray-300 mb-8 py-6">
+          <h3 className="text-2xl uppercase font-semibold tracking-widest text-white mb-8 py-6">
             Our Values
           </h3>
 

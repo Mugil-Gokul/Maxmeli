@@ -114,7 +114,7 @@ const WhyChooseUs = () => {
             whileInView="visible"
             viewport={{ once: true }}
             href="#about"
-            className="inline-block bg-black text-white px-8 py-3 font-semibold hover:bg-gray-800 transition"
+            className="inline-block bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 text-white px-8 py-3 font-semibold tracking-widest shadow-md hover:brightness-110 hover:text-black transition"
           >
             Learn More
           </motion.a>

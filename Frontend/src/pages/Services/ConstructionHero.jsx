@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HeroImg from "../../assets/collage3.jpg"; // replace with your actual image path
+import HeroImg from "../../assets/banner5.jpg"; // replace with your actual image path
 
 const ConstructionHero = () => {
   return (
@@ -36,7 +36,7 @@ const ConstructionHero = () => {
             transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
             className="text-3xl md:text-5xl font-bold text-white leading-snug"
           >
-            Building the future of the construction industry, one project at a time
+            Building bold foundations for tomorrow — where vision meets precision, and every structure tells a story.
           </motion.h1>
         </div>
       </div>

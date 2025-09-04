@@ -1,8 +1,8 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { motion } from "framer-motion";
-import ConstructionImg from "../../assets/collage3.jpg";
-import RestorationImg from "../../assets/collage4.jpg";
+import ConstructionImg from "../../assets/banner1.jpg";
+import RestorationImg from "../../assets/banner3.jpg";
 
 const ServicesListing = () => {
   const services = [

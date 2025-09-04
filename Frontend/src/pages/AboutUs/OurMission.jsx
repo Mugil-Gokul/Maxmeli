@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import bgImage from "../../assets/collage5.jpg";
+import bgImage from "../../assets/banner4.jpg";
 
 const overlayVariant = {
   hidden: { opacity: 0 },

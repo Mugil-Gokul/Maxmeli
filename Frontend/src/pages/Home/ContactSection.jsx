@@ -70,7 +70,7 @@ export default function ContactSection() {
           <p className="font-bold mb-6">NEED TO REACH US?</p>
           <a
             href="#contact"
-            className="font-sm tracking-wider inline-block bg-yellow-400 text-white font-semibold px-4 py-2 hover:bg-yellow-500 transition-colors"
+            className="font-sm inline-block bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 tracking-widest hover:brightness-110 hover:text-black text-white font-semibold px-4 py-2 hover:bg-yellow-500 transition-colors"
           >
             CONTACT US
           </a>

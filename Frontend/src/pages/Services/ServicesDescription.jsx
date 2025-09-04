@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import bgImage from "../../assets/collage2.jpg";
+import bgImage from "../../assets/banner2.jpg";
 
 export default function ServicesDescription() {
   const controls = useAnimation();

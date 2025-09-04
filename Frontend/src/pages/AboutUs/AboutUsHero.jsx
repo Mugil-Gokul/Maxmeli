@@ -50,7 +50,7 @@ const AboutUsHero = () => {
           className="max-w-3xl"
         >
           <h1 className="text-white text-3xl md:text-5xl font-bold leading-tight">
-            We create structures that endure, combining sustainable design with world-class construction expertise.
+            Crafting spaces that inspire — where innovation meets integrity, and every detail is built to last.
           </h1>
         </motion.div>
       </div>

@@ -10,8 +10,8 @@ const testimonials = [
   },
   {
     id: 2,
-    text: "Working with Maxmeli Construction was an absolute pleasure. They delivered on time and exceeded our expectations in every way possible.",
-    name: "Sarah Johnson",
+    text: "Their restoration services helped us preserve our building while enhancing its aesthetics and functionality. Highly recommended!",
+    name: "Grace",
     img: "https://i.pravatar.cc/100?img=5",
   },
 ];
