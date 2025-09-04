@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
-import ConstructionImg1 from "../../assets/capture.jpg";
-import ConstructionImg2 from "../../assets/capture2.jpg";
-import ConstructionImg3 from "../../assets/capture3.jpg";
-import ConstructionImg4 from "../../assets/capture4.jpg";
+import ConstructionImg1 from "../../assets/Capture.jpg";
+import ConstructionImg2 from "../../assets/Capture2.jpg";
+import ConstructionImg3 from "../../assets/Capture3.jpg";
+import ConstructionImg4 from "../../assets/Capture4.jpg";
 import PaintingImg1 from "../../assets/pp1.jpg";
 import PaintingImg2 from "../../assets/pp2.jpg";
 import PaintingImg3 from "../../assets/pp3.jpg";
