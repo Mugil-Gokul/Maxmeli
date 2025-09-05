@@ -38,24 +38,26 @@ const Testimonial = () => {
   }, []);
 
   return (
-    <section className="w-full px-6 py-16 md:mt-40 mt-96">
+    <section className="w-full px-4 sm:px-6 py-16 md:mt-40 mt-72">
       {/* Header */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeVariant}
-        className="mb-12 text-left"
+        className="mb-12 text-center md:text-left"
       >
-        <p className="uppercase text-sm tracking-widest">Testimonials</p>
-        <div className="w-[23rem] h-[1px] bg-black my-2"></div>
-        <h2 className="text-2xl md:text-3xl font-bold mt-4">
+        <p className="uppercase text-xs sm:text-sm tracking-widest">
+          Testimonials
+        </p>
+        <div className="w-32 sm:w-64 md:w-[23rem] h-[1px] bg-black my-2 mx-auto md:mx-0"></div>
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mt-4">
           WHAT OUR CLIENTS SAY ?
         </h2>
       </motion.div>
 
       {/* Testimonial Content */}
-      <div className="max-w-xl mx-auto flex flex-col md:flex-row items-center gap-8 mt-20">
+      <div className="max-w-2xl mx-auto flex flex-col items-center md:flex-row gap-6 sm:gap-8 mt-10 sm:mt-16">
         <div className="flex-1 text-center">
           <AnimatePresence mode="wait">
             <motion.div
@@ -65,18 +67,20 @@ const Testimonial = () => {
               exit="exit"
               variants={fadeVariant}
             >
-              <p className="text-xl md:text-2xl italic leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl italic leading-relaxed px-2 sm:px-0">
                 “{testimonials[activeIndex].text}”
               </p>
 
               {/* Client Info */}
-              <div className="flex items-center justify-center gap-4 mt-10">
+              <div className="flex items-center justify-center gap-4 mt-6 sm:mt-8">
                 <img
                   src={testimonials[activeIndex].img}
                   alt={testimonials[activeIndex].name}
-                  className="w-14 h-14 rounded-full object-cover"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover"
                 />
-                <p className="font-medium">{testimonials[activeIndex].name}</p>
+                <p className="font-medium text-sm sm:text-base md:text-lg">
+                  {testimonials[activeIndex].name}
+                </p>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -84,12 +88,12 @@ const Testimonial = () => {
       </div>
 
       {/* Dots */}
-      <div className="flex justify-center gap-2 mt-10">
+      <div className="flex justify-center gap-2 mt-8 sm:mt-10">
         {testimonials.map((_, index) => (
           <button
             key={index}
             onClick={() => setActiveIndex(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
               activeIndex === index
                 ? "bg-black scale-110"
                 : "border border-black"

@@ -14,7 +14,7 @@ const PortfolioHero = () => {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 flex h-full items-center px-8 md:px-16">
+      <div className="relative z-10 flex h-full items-center px-3 md:px-16">
         
         {/* Left rail: ABOUT US + line */}
         <div className="flex items-center mr-6 md:mr-10">

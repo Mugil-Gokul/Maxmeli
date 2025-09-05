@@ -41,7 +41,7 @@ const OurService = () => {
   return (
     <section className="w-full relative min-h-screen">
       {/* Top Black Background */}
-      <div className="bg-black text-white px-8 py-12 min-h-[75vh] flex flex-col justify-start relative">
+      <div className="bg-black text-white px-6 sm:px-8 py-12 min-h-[75vh] flex flex-col justify-start relative">
         <div className="max-w-6xl">
           <motion.p
             initial="hidden"
@@ -67,14 +67,24 @@ const OurService = () => {
             viewport={{ once: true, amount: 0.5 }}
             variants={textVariant}
             transition={{ delay: 0.6 }}
-            className="text-4xl tracking-widest font-bold mt-4"
+            className="text-3xl sm:text-4xl tracking-widest font-bold mt-4"
           >
             WHAT WE DO
           </motion.h2>
         </div>
 
         {/* Cards */}
-        <div className="absolute bottom-0 left-8 right-8 md:left-auto md:w-[70%] grid grid-cols-1 md:grid-cols-2 gap-6 translate-y-1/2">
+        <div
+          className="
+            absolute bottom-0
+            left-6 right-6 
+            md:left-auto md:right-8 
+            md:w-[70%] 
+            grid gap-6 
+            grid-cols-1 sm:grid-cols-2 
+            translate-y-1/2
+          "
+        >
           {[Construction, Restoration].map((img, i) => (
             <motion.div
               key={i}
@@ -85,7 +95,7 @@ const OurService = () => {
               variants={cardVariants}
               className="flex flex-col items-center"
             >
-              <div className="w-full max-w-[400px] h-[500px] overflow-hidden rounded-lg shadow-lg group">
+              <div className="w-full max-w-[400px] h-[450px] sm:h-[450px] md:h-[500px] overflow-hidden rounded-lg shadow-lg group">
                 <img
                   src={img}
                   alt={i === 0 ? "Construction" : "Restoration"}

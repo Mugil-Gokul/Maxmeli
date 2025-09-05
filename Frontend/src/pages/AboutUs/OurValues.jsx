@@ -55,7 +55,7 @@ const OurValues = () => {
   }, []);
 
   return (
-    <section className="bg-black text-white py-16 px-6 md:px-12 lg:px-20 h-screen">
+    <section className="bg-black text-white py-16 px-6 md:px-12 lg:px-20 md:h-screen">
       {/* Animated Line */}
       <motion.div
         initial={{ width: 0 }}

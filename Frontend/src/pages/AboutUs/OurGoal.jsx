@@ -22,7 +22,7 @@ const fadeRight = {
 
 const OurGoal = () => {
   return (
-    <section className="w-full grid md:grid-cols-2 h-screen px-5 overflow-hidden">
+    <section className="w-full grid md:grid-cols-2 md:h-screen md:py-0 py-10 px-5 overflow-hidden">
       {/* Left - Image */}
       <motion.div
         className="flex items-center justify-center bg-white"

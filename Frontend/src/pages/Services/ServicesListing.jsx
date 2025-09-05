@@ -100,7 +100,7 @@ const ServicesListing = () => {
               {/* Content */}
               <div className="relative z-10 p-6 md:p-8 flex flex-col justify-end min-h-[22rem]">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-white text-2xl md:text-2xl tracking-wider uppercase font-semibold drop-shadow-sm">
+                  <h3 className="text-white text-md md:text-2xl tracking-wider uppercase font-semibold drop-shadow-sm">
                     {s.title}
                   </h3>
                   <a

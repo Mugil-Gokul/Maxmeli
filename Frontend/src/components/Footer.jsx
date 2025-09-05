@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Linkedin, Instagram, Youtube, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 const Footer = () => {
@@ -23,7 +24,7 @@ const Footer = () => {
       variants={fadeUp}
       className="w-full bg-black text-white"
     >
-      {/* Top Section - Column Layout */}
+      {/* Top Section */}
       <div className="border-b border-gray-600">
         <div className="max-w-6xl mx-auto px-4 py-6 flex flex-col items-center text-center gap-4">
           <motion.h2
@@ -35,18 +36,33 @@ const Footer = () => {
 
           <motion.div
             variants={fadeUp}
-            className="flex items-center gap-32 text-md"
+            className="flex flex-wrap justify-center gap-16 text-md"
           >
-            <SocialLink icon={<Linkedin size={20} />} label="LinkedIn" color="hover:text-blue-400" />
-            <SocialLink icon={<Instagram size={20} />} label="Instagram" color="hover:text-pink-400" />
-            <SocialLink icon={<Youtube size={20} />} label="YouTube" color="hover:text-red-500" />
+            <SocialLink
+              icon={<Linkedin size={20} />}
+              label="LinkedIn"
+              color="hover:text-blue-400"
+              href="https://www.linkedin.com/company/yourcompany"
+            />
+            <SocialLink
+              icon={<Instagram size={20} />}
+              label="Instagram"
+              color="hover:text-pink-400"
+              href="https://www.instagram.com/yourcompany"
+            />
+            <SocialLink
+              icon={<Youtube size={20} />}
+              label="YouTube"
+              color="hover:text-red-500"
+              href="https://www.youtube.com/yourcompany"
+            />
           </motion.div>
         </div>
       </div>
 
       {/* Bottom Section */}
       <div>
-        <div className="max-w-6xl mx-auto px-4 py-12 flex items-start justify-between">
+        <div className="max-w-6xl mx-auto px-4 py-12 flex flex-col md:flex-row items-center md:items-start justify-between gap-8 md:gap-0">
           {/* Logo */}
           <motion.div variants={fadeUp} className="flex items-center gap-3">
             <img
@@ -57,21 +73,24 @@ const Footer = () => {
           </motion.div>
 
           {/* Navigation */}
-          <motion.div variants={fadeUp} className="flex gap-16 font-medium text-sm tracking-wider">
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col md:flex-row gap-8 md:gap-16 font-medium text-sm tracking-wider items-center md:items-start text-center md:text-left"
+          >
             {/* First Column */}
             <div className="flex flex-col gap-2">
-              <NavLink text="ABOUT US" href="#" />
-              <NavLink text="PORTFOLIO" href="#" />
-              <NavLink text="CONTACT US" href="#" />
+              <NavLink text="ABOUT US" to="/about" />
+              <NavLink text="PORTFOLIO" to="/portfolio" />
+              <NavLink text="CONTACT US" to="/contact" />
             </div>
 
             {/* Second Column - Dropdown */}
-            <div className="flex flex-col relative">
+            <div className="flex flex-col relative items-center md:items-start">
               <button
                 onClick={() => setServicesOpen(!servicesOpen)}
-                className="flex items-center gap-1 font-semibold  transition-colors"
+                className="flex items-center justify-center md:justify-start gap-1 font-semibold transition-colors w-full"
               >
-                <NavLink text="SERVICES"/>
+                <NavLink text="SERVICES" />
                 <ChevronDown
                   size={16}
                   className={`transition-transform duration-300 ${
@@ -89,8 +108,8 @@ const Footer = () => {
                     transition={{ duration: 0.3 }}
                     className="flex flex-col gap-2 mt-2"
                   >
-                    <NavLink text="CONSTRUCTION" href="#" />
-                    <NavLink text="RESTORATION" href="#" />
+                    <NavLink text="CONSTRUCTION" to="/services/construction" />
+                    <NavLink text="RESTORATION" to="/services/restoration" />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -104,21 +123,23 @@ const Footer = () => {
 
 export default Footer;
 
-/* Reusable NavLink with underline animation */
-function NavLink({ text, href }) {
+/* Reusable NavLink with underline animation using Link */
+function NavLink({ text, to }) {
   return (
-    <a href={href} className="relative group w-fit">
-      {text}
-      <span className="absolute left-0 -bottom-0.5 w-0 h-[0.5px] bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
-    </a>
+    <Link to={to || "#"} className="group relative w-fit inline-block">
+      <span>{text}</span>
+      <span className="absolute left-0 -bottom-0.5 w-0 h-[1px] bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+    </Link>
   );
 }
 
 /* Reusable Social Link */
-function SocialLink({ icon, label, color }) {
+function SocialLink({ icon, label, color, href }) {
   return (
     <a
-      href="#"
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`flex items-center flex-col gap-2 ${color} transition-colors`}
     >
       {icon}
