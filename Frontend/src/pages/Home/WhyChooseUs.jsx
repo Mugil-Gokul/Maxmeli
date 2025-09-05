@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Collage1 from "../../assets/collage1.jpg";
-import Collage2 from "../../assets/collage2.jpg";
-import Collage3 from "../../assets/collage3.jpg";
-import Collage4 from "../../assets/collage4.jpg";
-import Collage5 from "../../assets/collage5.jpg";
+import Collage1 from "../../assets/collage11.jpg";
+import Collage2 from "../../assets/collage12.jpg";
+import Collage3 from "../../assets/collage13.jpg";
+import Collage4 from "../../assets/collage14.jpg";
+import Collage5 from "../../assets/collage15.jpg";
 
 // Heading slides up from bottom
 const headingVariant = {

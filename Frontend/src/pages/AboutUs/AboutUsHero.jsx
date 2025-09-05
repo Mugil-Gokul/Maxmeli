@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import AboutUsHeroImg from '../../assets/collage4.jpg'; // make sure this path is correct
+import AboutUsHeroImg from '../../assets/collage14.jpg'; // make sure this path is correct
 
 const AboutUsHero = () => {
   return (

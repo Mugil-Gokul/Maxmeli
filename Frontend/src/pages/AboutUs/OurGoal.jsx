@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import WorkersImg from "../../assets/collage3.jpg";
+import WorkersImg from "../../assets/collage13.jpg";
 
 const fadeLeft = {
   hidden: { opacity: 0, x: -50 },

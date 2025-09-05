@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import bgImage from "../../assets/collage1.jpg"; // Replace with your background image path
+import bgImage from "../../assets/collage11.jpg"; // Replace with your background image path
 
 const overlayVariant = {
   hidden: { opacity: 0 },
