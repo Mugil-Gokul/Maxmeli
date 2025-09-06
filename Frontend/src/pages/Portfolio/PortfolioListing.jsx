@@ -155,6 +155,13 @@ const PortfolioListing = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-black uppercase tracking-wider">
             Portfolio
           </h2>
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="w-20 h-[3px] bg-yellow-500 mx-auto mt-3 origin-left"
+          />
         </motion.div>
 
         {portfolioData.map((item, index) => {
@@ -233,10 +240,10 @@ const PortfolioListing = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h2 className="text-2xl md:text-3xl font-bold text-black">
+                <h2 className="text-2xl md:text-3xl font-bold text-black tracking-wider">
                   {item.title}
                 </h2>
-                <h3 className="text-lg text-yellow-600 font-semibold mb-4">
+                <h3 className="text-lg text-yellow-600 font-semibold mb-4 tracking-wider">
                   {item.subheading}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">

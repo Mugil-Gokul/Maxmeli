@@ -186,7 +186,7 @@ const ConstructionWork = () => {
                 key={activeImageIndex}
                 src={projects[currentIndex].images[activeImageIndex]}
                 alt={projects[currentIndex].title}
-                className="shadow-lg w-[400px] md:w-0 max-w-[600px] max-h-[70vh] object-contain rounded-lg"
+                className="shadow-lg max-h-[70vh] object-contain"
                 custom={direction}
                 variants={imageVariants}
                 initial="enter"

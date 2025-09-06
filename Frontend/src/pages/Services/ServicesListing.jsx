@@ -105,7 +105,7 @@ const ServicesListing = () => {
                   </h3>
                   <a
                     href={s.href}
-                    className="inline-grid h-12 w-12 place-items-center rounded-full bg-white text-black transition-colors hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+                    className="font-sm inline-grid bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 tracking-widest hover:brightness-110 hover:text-black text-white h-12 w-12 place-items-center rounded-full transition-colors hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-400"
                     aria-label={`Go to ${s.title}`}
                   >
                     <FiArrowRight

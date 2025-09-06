@@ -92,13 +92,13 @@ const Navbar = () => {
               >
                 <Link
                   to="/services/construction"
-                  className="block px-4 py-2 hover:bg-yellow-500 transition"
+                  className="block px-4 py-2 hover:bg-yellow-500 hover:rounded-t-md transition"
                 >
                   Construction
                 </Link>
                 <Link
                   to="/services/restoration"
-                  className="block px-4 py-2 hover:bg-yellow-500 transition"
+                  className="block px-4 py-2 hover:bg-yellow-500 hover:rounded-b-md transition"
                 >
                   Restoration
                 </Link>

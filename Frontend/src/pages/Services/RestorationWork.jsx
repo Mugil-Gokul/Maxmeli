@@ -171,7 +171,7 @@ const RestorationWork = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 onClick={prevImage}
-                className="absolute left-[-60px] bg-white p-2 rounded-full shadow hover:bg-yellow-500 transition z-50"
+                className="absolute left-[-10px] md:left-[-60px] bg-white p-2 rounded-full shadow hover:bg-yellow-500 transition z-50"
               >
                 <AiOutlineLeft className="h-5 w-5 text-gray-800" />
               </motion.button>
@@ -181,7 +181,7 @@ const RestorationWork = () => {
                 key={activeImageIndex}
                 src={projects[currentIndex].images[activeImageIndex]}
                 alt={projects[currentIndex].title}
-                className="shadow-lg max-w-[600px] max-h-[70vh] object-contain rounded-lg"
+                className="shadow-lg max-h-[70vh] object-contain"
                 custom={direction}
                 variants={imageVariants}
                 initial="enter"
@@ -201,7 +201,7 @@ const RestorationWork = () => {
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 onClick={nextImage}
-                className="absolute right-[-60px] bg-white p-2 rounded-full shadow hover:bg-yellow-500 transition z-50"
+                className="absolute right-[-10px] md:right-[-60px] bg-white p-2 rounded-full shadow hover:bg-yellow-500 transition z-50"
               >
                 <AiOutlineRight className="h-5 w-5 text-gray-800" />
               </motion.button>
