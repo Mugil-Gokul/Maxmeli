@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineMail, AiOutlinePhone } from "react-icons/ai";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.25,
-      delayChildren: 0.2
-    }
-  }
+    transition: { staggerChildren: 0.25, delayChildren: 0.2 },
+  },
 };
 
 const itemVariants = {
@@ -18,11 +16,42 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
-  }
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 const ContactMain = () => {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    description: "",
+  });
+
+  const [message, setMessage] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:4040/api/contact", formData);
+      setMessage(res.data.message);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        email: "",
+        description: "",
+      });
+    } catch (err) {
+      setMessage("Something went wrong. Try again later.");
+    }
+  };
+
   return (
     <section className="py-16 bg-gray-100">
       <motion.div
@@ -33,11 +62,8 @@ const ContactMain = () => {
         viewport={{ once: true }}
       >
         {/* Left - Contact Form */}
-        <motion.div
-          className="bg-white p-8 rounded-lg shadow-lg"
-          variants={itemVariants}
-        >
-          <form className="space-y-6">
+        <motion.div className="bg-white p-8 rounded-lg shadow-lg" variants={itemVariants}>
+          <form className="space-y-6" onSubmit={handleSubmit}>
             {/* First & Last Name */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
@@ -46,7 +72,11 @@ const ContactMain = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
               <div>
@@ -55,7 +85,11 @@ const ContactMain = () => {
                 </label>
                 <input
                   type="text"
-                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
+                  className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-yellow-500"
                 />
               </div>
             </div>
@@ -67,7 +101,11 @@ const ContactMain = () => {
               </label>
               <input
                 type="tel"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-yellow-500"
               />
             </div>
 
@@ -78,7 +116,11 @@ const ContactMain = () => {
               </label>
               <input
                 type="email"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-yellow-500"
               />
             </div>
 
@@ -89,7 +131,10 @@ const ContactMain = () => {
               </label>
               <textarea
                 rows="4"
-                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                name="description"
+                value={formData.description}
+                onChange={handleChange}
+                className="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-yellow-500"
               ></textarea>
             </div>
 
@@ -101,17 +146,15 @@ const ContactMain = () => {
               SUBMIT
             </button>
           </form>
+          {message && <p className="mt-4 text-center text-green-600">{message}</p>}
         </motion.div>
 
         {/* Right - Contact Info */}
         <motion.div className="flex flex-col gap-6" variants={itemVariants}>
           {/* Email Box */}
-          <motion.div
-            className="group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-r from-yellow-500 to-yellow-400 p-[2px]"
-            variants={itemVariants}
-          >
-            <div className="flex items-center gap-5 bg-white rounded-xl p-6 transition-transform duration-300 group-hover:-translate-y-1">
-              <div className="bg-yellow-500 p-4 rounded-full shadow-md group-hover:scale-110 transition-transform duration-300">
+          <motion.div className="group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-r from-yellow-500 to-yellow-400 p-[2px]" variants={itemVariants}>
+            <div className="flex items-center gap-5 bg-white rounded-xl p-6 group-hover:-translate-y-1 transition">
+              <div className="bg-yellow-500 p-4 rounded-full shadow-md group-hover:scale-110 transition">
                 <AiOutlineMail className="text-white text-3xl" />
               </div>
               <div>
@@ -126,12 +169,9 @@ const ContactMain = () => {
           </motion.div>
 
           {/* Phone Box */}
-          <motion.div
-            className="group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-r from-yellow-500 to-yellow-400 p-[2px]"
-            variants={itemVariants}
-          >
-            <div className="flex items-center gap-5 bg-white rounded-xl p-6 transition-transform duration-300 group-hover:-translate-y-1">
-              <div className="bg-yellow-500 p-4 rounded-full shadow-md group-hover:scale-110 transition-transform duration-300">
+          <motion.div className="group relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-r from-yellow-500 to-yellow-400 p-[2px]" variants={itemVariants}>
+            <div className="flex items-center gap-5 bg-white rounded-xl p-6 group-hover:-translate-y-1 transition">
+              <div className="bg-yellow-500 p-4 rounded-full shadow-md group-hover:scale-110 transition">
                 <AiOutlinePhone className="text-white text-3xl" />
               </div>
               <div>
