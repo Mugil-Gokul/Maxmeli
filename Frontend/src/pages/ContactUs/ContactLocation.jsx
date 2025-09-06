@@ -44,7 +44,7 @@ const ContactLocation = () => {
           variants={itemVariants}
         >
           <motion.div
-            className="bg-yellow-500 p-4 rounded-full shadow-md"
+            className="bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 p-4 rounded-full shadow-md group-hover:scale-110 transition hover:text-black"
             variants={itemVariants}
           >
             <AiOutlineEnvironment className="text-white text-3xl" />
@@ -70,7 +70,7 @@ const ContactLocation = () => {
             href="https://www.google.com/maps/place/44+Goodmark+Pl,+Etobicoke,+ON+M9W+6N8,+Canada"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-4 inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-6 py-3  transition"
+            className="inline-block bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 text-white px-5 sm:px-6 md:px-8 py-2.5 sm:py-3 font-semibold tracking-widest shadow-md hover:brightness-110 hover:text-black transition"
             variants={itemVariants}
           >
             View on Google Maps
