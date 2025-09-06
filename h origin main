@@ -1,0 +1,89 @@
+[33mcommit a1076e3c2739790b09723771c416029c87f0d51f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Sat Sep 6 20:17:27 2025 +0530
+
+    env removed
+
+[33mcommit cce5407601a6694007a7049b207d8f16549d533e[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Sat Sep 6 20:07:25 2025 +0530
+
+    bug fixed
+
+[33mcommit f0fdf92981c6d2ae0670ae7be956bb4e94b3a25a[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Sat Sep 6 20:02:16 2025 +0530
+
+    Backend Done
+
+[33mcommit 976814ee091bb32cd0aa7348d44cca0e7f876eaf[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Fri Sep 5 23:23:58 2025 +0530
+
+    bug fixed
+
+[33mcommit 31938d68268077c45e4737833cb7b99558ca1904[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Fri Sep 5 23:14:00 2025 +0530
+
+    Mobile view converted
+
+[33mcommit 4d7238ce2154dfc993122260f3d6362e5074d45c[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Fri Sep 5 20:14:52 2025 +0530
+
+    Image compressed
+
+[33mcommit fd6822530625b622f92bae1d4c8de097f25fb5db[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Fri Sep 5 00:15:47 2025 +0530
+
+    Bug fixed
+
+[33mcommit 0b1a71496db434446ae3fa6243dceedccb20613f[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Thu Sep 4 23:54:14 2025 +0530
+
+    Name changed
+
+[33mcommit 0c5cc868a55b357a965f9ba6d4188f965ed50246[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Thu Sep 4 23:46:47 2025 +0530
+
+    Images and content updated
+
+[33mcommit 3efcfa8f177ae16257bc5b41985d3d125b3af038[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Thu Sep 4 16:09:09 2025 +0530
+
+    Animation added
+
+[33mcommit d17071d8df01d15b8e8ac39f6c473c6c303c9926[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Wed Sep 3 23:40:28 2025 +0530
+
+    Layout Done
+
+[33mcommit 063b581603dbb5933e5e3b9a655fe3c387aa0e56[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Wed Sep 3 00:15:44 2025 +0530
+
+    Hero to Testimonial done
+
+[33mcommit b6831613770e0745e9fd017f42ea4e442bfdc0e0[m
+Author: Mugil-Gokul <gokult@mugil.io>
+Date:   Tue Sep 2 19:13:35 2025 +0530
+
+    Tailwind installed
+
+[33mcommit 087a987a5db07d0b392cdbebe21c2bdeea98f677[m
+Author: GokulTR-07 <gokultr1206@gmail.com>
+Date:   Tue Sep 2 19:05:26 2025 +0530
+
+    vite installed
+
+[33mcommit b11f25c59c2f3a4896af9324991d3f612d30a4d1[m
+Author: GokulTR-07 <gokultr1206@gmail.com>
+Date:   Tue Sep 2 18:44:51 2025 +0530
+
+    first commit
