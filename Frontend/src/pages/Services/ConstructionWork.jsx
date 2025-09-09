@@ -21,9 +21,9 @@ import Work17 from "../../assets/ls7.jpeg";
 
 const projects = [
   { title: "New Built And Custom Homes", images: [Work1, Work2] },
-  { title: "Fourplex And Garden Suite", images: [Work3, Work4] },
   { title: "Interior Retrofit", images: [Work5, Work6, Work7, Work8, Work9, Work10] },
   { title: "Landscaping", images: [Work11, Work12, Work13, Work14, Work15, Work16, Work17] },
+  { title: "Fourplex And Garden Suite", images: [Work3, Work4] },
 ];
 
 const imageVariants = {
