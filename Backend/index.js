@@ -29,5 +29,9 @@ const PORT=process.env.PORT;
 
 app.use("/api/contact", ContactRoutes);
 
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Test API is working 🚀" });
+});
+
 
 app.listen(PORT, () => console.log(`app is running on port ${PORT}`));
