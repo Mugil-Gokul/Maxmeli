@@ -10,7 +10,7 @@ dotenv.config();
 
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://maxmeli.vercel.app/',
   credentials: true
 }));
 

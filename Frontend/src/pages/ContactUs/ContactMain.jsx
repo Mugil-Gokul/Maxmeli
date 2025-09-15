@@ -38,7 +38,7 @@ const ContactMain = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4040/api/contact", formData);
+      const res = await axios.post("https://maxmeli-backend.vercel.app/api/contact", formData);
       setMessage(res.data.message);
       setFormData({
         firstName: "",
