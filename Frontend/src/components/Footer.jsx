@@ -42,19 +42,19 @@ const Footer = () => {
               icon={<Linkedin size={20} />}
               label="LinkedIn"
               color="hover:text-blue-400"
-              href="https://www.linkedin.com/company/yourcompany"
+              href="#"
             />
             <SocialLink
               icon={<Instagram size={20} />}
               label="Instagram"
               color="hover:text-pink-400"
-              href="https://www.instagram.com/yourcompany"
+              href="#"
             />
             <SocialLink
               icon={<Youtube size={20} />}
               label="YouTube"
               color="hover:text-red-500"
-              href="https://www.youtube.com/yourcompany"
+              href="#"
             />
           </motion.div>
         </div>
@@ -138,7 +138,6 @@ function SocialLink({ icon, label, color, href }) {
   return (
     <a
       href={href}
-      target="_blank"
       rel="noopener noreferrer"
       className={`flex items-center flex-col gap-2 ${color} transition-colors`}
     >

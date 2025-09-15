@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import bgImage from "../../assets/collage11.jpg"; // Replace with your background image path
+import { Link } from "react-router-dom";
 
 const overlayVariant = {
   hidden: { opacity: 0 },
@@ -68,12 +69,12 @@ export default function ContactSection() {
         >
           <h3 className="text-sm font-medium text-gray-700 mb-2">LET&apos;S TALK</h3>
           <p className="font-bold mb-6">NEED TO REACH US?</p>
-          <a
-            href="#contact"
+          <Link
+            to={"/contact"}
             className="font-sm inline-block bg-gradient-to-r from-yellow-600 via-yellow-500 to-yellow-400 tracking-widest hover:brightness-110 hover:text-black text-white font-semibold px-4 py-2 hover:bg-yellow-500 transition-colors"
           >
             CONTACT US
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

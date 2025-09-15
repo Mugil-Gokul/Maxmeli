@@ -6,7 +6,7 @@ const testimonials = [
     id: 1,
     text: "Maxmeli Construction transformed our vision into reality with their exceptional attention to detail and professionalism. We couldn’t be happier!",
     name: "Tom Hardy",
-    img: "https://i.pravatar.cc/100?img=3",
+    img: "https://i.pravatar.cc/100?img=12",
   },
   {
     id: 2,

@@ -37,7 +37,7 @@ const Hero = () => {
           {/* Heading */}
           <div className="relative overflow-hidden">
             <motion.h1
-              className="text-4xl md:text-5xl font-bold text-white uppercase tracking-widest"
+              className="text-3xl md:text-5xl font-bold text-white uppercase tracking-widest"
               variants={textRise}
               initial="hidden"
               animate="visible"
@@ -49,7 +49,7 @@ const Hero = () => {
           {/* Paragraph */}
           <div className="relative overflow-hidden">
             <motion.p
-              className="text-md md:text-xl text-white tracking-wider font-medium"
+              className="text-sm md:text-xl text-white tracking-wider font-medium"
               variants={textRise}
               initial="hidden"
               animate="visible"
