@@ -10,7 +10,7 @@ dotenv.config();
 
 
 app.use(cors({
-  origin: 'https://maxmeli.vercel.app/',
+  origin: 'https://maxmeli.vercel.app',
   credentials: true
 }));
 
