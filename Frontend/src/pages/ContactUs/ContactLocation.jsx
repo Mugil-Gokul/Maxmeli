@@ -61,7 +61,7 @@ const ContactLocation = () => {
             className="text-gray-600 leading-relaxed"
             variants={itemVariants}
           >
-            44 Goodmark Place<br />
+            Unit 15, No:44 Goodmark Place<br />
             Etobicoke, Ontario<br />
             M9W 6N8, Canada
           </motion.p>
