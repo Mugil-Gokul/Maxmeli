@@ -17,7 +17,7 @@ export const createContact = async (req, res) => {
     // Email content
     const mailOptions = {
       from: `"Maxmeli Website" <${process.env.EMAIL_USER}>`,
-      to: "gokultr1206@gmail.com",
+      to: "info@maxmeli.com",
       subject: "New Contact Form Submission",
       html: `
         <h2>New Contact Form Submission</h2>
